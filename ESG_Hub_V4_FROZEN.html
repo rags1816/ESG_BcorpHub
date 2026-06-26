@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ESG Impact Suite — i-NoCarbon</title>
+<title>ESG &amp; B Corp Suite — i-NoCarbon</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
@@ -87,6 +87,10 @@ body{font-family:var(--font);background:var(--surface);color:var(--ink);min-heig
 .login-btn-admin{background:#1565C0;color:#fff}
 .login-btn-admin:hover{background:#0D47A1}
 .login-no-pass{background:var(--g100);border:1px solid var(--g200);border-radius:var(--r);padding:8px 10px;font-size:12px;color:var(--g800);display:none;margin-bottom:.5rem}
+.sec-info-btn{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--g100);color:var(--g800);font-size:11px;font-weight:700;cursor:pointer;border:1px solid var(--g300);margin-left:6px;vertical-align:middle;flex-shrink:0;position:relative}
+.sec-info-btn:hover .sec-info-tip{display:block}
+.sec-info-tip{display:none;position:absolute;left:24px;top:-4px;width:260px;background:var(--ink);color:#fff;font-size:11px;line-height:1.55;padding:8px 10px;border-radius:7px;z-index:900;font-weight:400;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.sec-info-tip::before{content:'';position:absolute;left:-5px;top:10px;border:5px solid transparent;border-right-color:var(--ink)}
 .login-err{background:var(--r100);border:1px solid #FFCDD2;border-radius:var(--r);padding:8px 10px;font-size:12px;color:var(--r700);display:none;margin-bottom:.75rem}
 .login-footer{margin-top:2rem;text-align:center;font-size:11px;color:rgba(255,255,255,.4);position:relative}
 .login-footer span{margin:0 8px}
@@ -462,7 +466,7 @@ textarea.inp{resize:vertical;min-height:75px;line-height:1.6}
     <div class="login-logo-fallback" id="login-logo-fb" style="display:none">iNC</div>
     <h1>i-No<span>Carbon</span></h1>
     <p class="tagline">Change Today for a Better Tomorrow</p>
-    <p style="font-size:12px;color:rgba(255,255,255,.55);margin-top:.35rem">ESG Impact Suite — Integrated ESG · Carbon · B Corp Platform</p>
+    <p style="font-size:12px;color:rgba(255,255,255,.55);margin-top:.35rem">ESG &amp; B Corp Suite — Integrated ESG · Carbon · B Corp · Certification</p>
   </div>
 
   <div class="login-cards">
@@ -543,13 +547,13 @@ textarea.inp{resize:vertical;min-height:75px;line-height:1.6}
 
 <!-- TOP BAR -->
 <nav class="topbar">
-  <div class="topbar-logo" onclick="showScreen('home')">
+  <div class="topbar-logo" onclick="if(confirm('Return to login? Your data is saved in this browser.'))location.reload()" title="Return to login screen">
     <img id="topbar-logo-img"
          src="https://i-nocarbon.com/wp-content/uploads/2021/03/cropped-i-NoCarbon-270x270.png"
          alt="i-NoCarbon" style="width:30px;height:30px;border-radius:50%;object-fit:cover"
          onerror="this.style.display='none';document.getElementById('topbar-logo-fb').style.display='flex'">
     <div class="topbar-logo-fb" id="topbar-logo-fb" style="display:none;width:30px;height:30px;border-radius:50%;background:var(--g800);align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700">iNC</div>
-    <span class="topbar-logo-text">i-No<span>Carbon</span> ESG Suite</span>
+    <span class="topbar-logo-text">i-No<span>Carbon</span> ESG &amp; B Corp Suite</span>
   </div>
 
   <div class="topbar-nav">
@@ -910,7 +914,9 @@ textarea.inp{resize:vertical;min-height:75px;line-height:1.6}
 ═══════════════════════════════════════════════════════════════ -->
 <div class="screen" id="screen-dashboard">
   <div class="sec-hdr">
-    <div><h2>ESG Dashboard</h2><p>Maturity score, pillar breakdown, radar chart and target-driven action plan. Click E, S or G pill to drill down into individual questions.</p></div>
+    <div><h2>ESG Dashboard
+      <span class="sec-info-btn">ℹ<span class="sec-info-tip">Your ESG maturity score (0–100), E/S/G pillar radar, sector benchmark comparison, and prioritised action plan with cost-to-change. Actions sorted by sector gap first — the biggest competitive risks appear at the top.</span></span>
+    </h2><p>Maturity score, pillar breakdown, radar chart and target-driven action plan. Click E, S or G pill to drill down into individual questions.</p></div>
     <button class="btn btn-outline btn-sm" onclick="showScreen('diagnostic');showQStep('dq-setup')">Retake Assessment</button>
   </div>
   <div class="sec-wrap">
@@ -1318,7 +1324,9 @@ textarea.inp{resize:vertical;min-height:75px;line-height:1.6}
 ═══════════════════════════════════════════════════════════════ -->
 <div class="screen" id="screen-carbon-dashboard">
   <div class="sec-hdr">
-    <div><h2>Carbon Dashboard &amp; Optimisation</h2><p>Scope 1, 2 &amp; 3 results · carbon intensity · reduction target · cost-optimised recommendations. DESNZ 2025 / DEFRA 2024.</p></div>
+    <div><h2>Carbon Dashboard &amp; Optimisation
+      <span class="sec-info-btn" title="About this section">ℹ<span class="sec-info-tip">Shows Scope 1, 2 & 3 totals, carbon intensity (tCO₂e per £1M revenue), optimisation actions ranked by cost/carbon, 3 scenario modes, and sources & methodology. All factors from DESNZ 2025 and DEFRA 2024.</span></span>
+    </h2><p>Scope 1, 2 &amp; 3 results · carbon intensity · reduction target · cost-optimised recommendations. DESNZ 2025 / DEFRA 2024.</p></div>
     <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap">
       <span class="source-badge">DESNZ 2025</span><span class="source-badge">DEFRA 2024</span>
       <button class="btn btn-outline btn-sm" onclick="showScreen('carbon')">Edit inputs</button>
@@ -1566,7 +1574,9 @@ textarea.inp{resize:vertical;min-height:75px;line-height:1.6}
 ═══════════════════════════════════════════════════════════════ -->
 <div class="screen" id="screen-bcorp">
   <div class="sec-hdr">
-    <div><h2>B Corp Readiness — B Impact Assessment</h2>
+    <div><h2>B Corp Readiness — B Impact Assessment
+      <span class="sec-info-btn">ℹ<span class="sec-info-tip">28 dedicated BIA questions across 5 pillars. Scores computed directly from your answers — not inferred from ESG maturity. 80/186 points required for certification. Each question shows its B Lab criteria reference and cost to improve.</span></span>
+    </h2>
     <p>28 dedicated BIA questions across 5 pillars. Scores computed directly from your answers — not inferred from ESG maturity. Minimum 80/186 estimated points for certification readiness.</p></div>
   </div>
   <div class="sec-wrap">
@@ -1720,7 +1730,10 @@ textarea.inp{resize:vertical;min-height:75px;line-height:1.6}
 ═══════════════════════════════════════════════════════════════ -->
 
 <div class="screen" id="screen-download">
-  <div class="sec-hdr"><div><h2>Downloads &amp; Templates</h2><p>Offline tools for data collection, team engagement and B Corp preparation. Pre-labelled for your company where Intake is complete.</p></div></div>
+  <div class="sec-hdr"><div>
+    <h2>Downloads &amp; Templates <span class="sec-info-btn">ℹ<span class="sec-info-tip">Download Excel and Word templates to collect data offline with Finance, HR, Legal and Operations teams. When complete, use the upload icon on the Carbon Calc or Diagnostic screen to import — data maps directly to the input fields.</span></span></h2>
+    <p>Offline tools for data collection, team engagement and B Corp preparation. Pre-labelled for your company where Intake is complete.</p>
+  </div></div>
   <div class="sec-wrap">
     <div class="dl-card">
       <div class="dl-icon" style="background:var(--v100)">📋</div>
@@ -1778,8 +1791,8 @@ textarea.inp{resize:vertical;min-height:75px;line-height:1.6}
       <button class="dgd-mode-btn active" id="dgd-mode-demo" onclick="setDemoMode('demo')">📊 ABC Limited</button>
       <button class="dgd-mode-btn" id="dgd-mode-own" onclick="setDemoMode('own')">🏢 My Company</button>
     </div>
-    <div id="dgd-mode-note-demo" style="font-size:11px;color:var(--ink3);line-height:1.5">Using ABC Limited sample data. Auto-fill buttons load pre-set figures for each screen.</div>
-    <div id="dgd-mode-note-own" style="font-size:11px;color:var(--ink3);line-height:1.5;display:none">Using your own company data. Forms are empty — enter your figures. Your data is saved separately from the demo.</div>
+    <div id="dgd-mode-note-demo" style="font-size:11px;color:var(--ink3);line-height:1.5">Viewing <strong>ABC Limited demo data</strong>. Click "Auto-Fill This Screen" on any module to load ABC's pre-set figures and see example outputs.</div>
+    <div id="dgd-mode-note-own" style="font-size:11px;color:var(--ink3);line-height:1.5;background:#FFF3E0;border:1px solid #FFB74D;border-radius:5px;padding:7px 9px"><strong>My Company mode:</strong> Demo data is hidden. Navigate to each module and enter your own figures. Your data saves separately — switching back to ABC Limited will not overwrite it.</div>
   </div>
 
   <!-- Progress -->
@@ -1826,7 +1839,7 @@ textarea.inp{resize:vertical;min-height:75px;line-height:1.6}
   <!-- Actions -->
   <div class="dgd-section" id="dgd-actions-section">
     <h4>Actions</h4>
-    <button class="dgd-action-btn primary" id="dgd-autofill-btn" onclick="autoFillCurrentScreen()">▶ Auto-Fill This Screen</button>
+    <button class="dgd-action-btn primary" id="dgd-autofill-btn" onclick="autoFillCurrentScreen()" title="Loads ABC Limited's pre-set data into the current screen only. Use to see example outputs.">▶ Auto-Fill This Screen with ABC Data</button>
     <button class="dgd-action-btn secondary" id="dgd-viewdata-btn" onclick="openModal('abc-data-modal')">📋 View ABC Limited Data</button>
     <button class="dgd-action-btn secondary" onclick="resetCurrentScreen()">↺ Reset This Screen</button>
   </div>
@@ -1840,7 +1853,7 @@ textarea.inp{resize:vertical;min-height:75px;line-height:1.6}
       320 FTE · £28M revenue · FY 2024<br>
       UK (HQ) + EU (Dublin) + India (Bangalore)<br>
       Target: B Corp certification by 2027<br>
-      <span style="color:var(--g800);font-weight:600">Expected footprint: ~700 tCO₂e/yr</span>
+      <span style="color:var(--g800);font-weight:600">Calculated footprint: ~1,546 tCO₂e/yr (Scope 1+2+3)</span>
     </div>
   </div>
 </div>
@@ -1851,7 +1864,7 @@ textarea.inp{resize:vertical;min-height:75px;line-height:1.6}
 <div class="admin-drawer" id="admin-drawer">
   <div class="adp-header">
     <h3>⚙ Admin Panel</h3>
-    <p>i-NoCarbon ESG Suite — Administrator Controls</p>
+    <p>i-NoCarbon ESG &amp; B Corp Suite — Administrator Controls</p>
     <button class="adp-close" onclick="toggleAdminDrawer()">✕</button>
   </div>
   <div class="adp-tabs">
@@ -2103,13 +2116,13 @@ textarea.inp{resize:vertical;min-height:75px;line-height:1.6}
 <div class="modal-overlay" id="user-guide-modal">
   <div class="modal-box">
     <div class="modal-header">
-      <div><h2>📖 User Guide — ESG Impact Suite</h2><p>i-NoCarbon · Change Today for a Better Tomorrow</p></div>
+      <div><h2>📖 User Guide — ESG &amp; B Corp Suite</h2><p>i-NoCarbon · Change Today for a Better Tomorrow</p></div>
       <button class="modal-close" onclick="closeModal('user-guide-modal')">✕</button>
     </div>
     <div class="modal-body">
       <div class="guide-section">
         <h3>What This Tool Does</h3>
-        <p>The ESG Impact Suite helps you measure your organisation's ESG (Environmental, Social, Governance) performance, generate regulatory-ready reports and prepare for B Corp certification — all in one place.</p>
+        <p>The ESG &amp; B Corp Suite helps you measure your organisation's ESG (Environmental, Social, Governance) performance, generate regulatory-ready reports and prepare for B Corp certification — all in one place.</p>
         <p>It covers the full reporting journey: from a 21-question maturity assessment through to a Scope 1, 2 and 3 carbon footprint, an AI-assisted ESG report and an estimated B Impact Assessment score.</p>
         <div class="tip-box">💡 <strong>Tip:</strong> The more data you enter, the more accurate your results. Using partial data is fine — the tool will flag where inputs are missing and note this in your report.</div>
       </div>
@@ -2177,7 +2190,7 @@ textarea.inp{resize:vertical;min-height:75px;line-height:1.6}
 <div class="modal-overlay" id="admin-guide-modal">
   <div class="modal-box">
     <div class="modal-header" style="background:linear-gradient(135deg,#92400E,#D97706)">
-      <div><h2>🔧 Admin Guide — ESG Impact Suite</h2><p>i-NoCarbon · Administrator Reference</p></div>
+      <div><h2>🔧 Admin Guide — ESG &amp; B Corp Suite</h2><p>i-NoCarbon · Administrator Reference</p></div>
       <button class="modal-close" onclick="closeModal('admin-guide-modal')">✕</button>
     </div>
     <div class="modal-body">
@@ -3136,8 +3149,12 @@ function buildSourcesTables(isCustom){
   if(ct) ct.innerHTML='<tr><th>Item</th><th>Rate</th><th>Source</th></tr>'+cRows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('');
 }
 function toggleSources(){
-  const d=document.getElementById('sources-detail');
-  if(d) d.style.display=d.style.display==='none'?'block':'none';
+  const d=document.getElementById('sources-panel');
+  const icon=document.getElementById('sources-toggle-icon');
+  if(!d) return;
+  const showing=d.style.display==='block';
+  d.style.display=showing?'none':'block';
+  if(icon) icon.textContent=showing?'▼ Show':'▲ Hide';
 }
 
 function updateCarbonRecos(){
@@ -3764,6 +3781,14 @@ function setAiEnabled(on){
   renderAuditQuestions();
 }
 function adminToggleAI(){ setAiEnabled(!SESSION.aiEnabled); }
+function updateAIBars(){
+  var isOn = SESSION.aiEnabled || SESSION.aiOn;
+  var bars = ['diag-ai-bar-txt'];
+  bars.forEach(function(id){
+    var el=document.getElementById(id);
+    if(el) el.textContent = isOn ? 'ON ✅' : 'off';
+  });
+}
 function setAdminView(on){
   SESSION.adminView=on;
   document.querySelectorAll('.admin-note').forEach(n=>n.classList.toggle('visible',on&&SESSION.role==='admin'));
@@ -4507,45 +4532,45 @@ function extendSession(){
    Score: ~68/186 — realistic gap of 12 pts to threshold
 ═══════════════════════════════════════════════════════════════ */
 const ABC_BIA_ANSWERS={
-  // GOVERNANCE — 7 questions
-  g1:{optIdx:1,pts:2},  // Mission statement only (no purpose clause yet)
+  // GOVERNANCE — 7 questions  [target: 22/42]
+  g1:{optIdx:1,pts:2},  // Mission statement only — no legal purpose clause yet
   g2:{optIdx:2,pts:4},  // Quarterly board review
-  g3:{optIdx:1,pts:2},  // Informal consideration of ESG in pay
-  g4:{optIdx:2,pts:4},  // Annual sustainability summary published
+  g3:{optIdx:0,pts:0},  // No formal ESG pay linkage
+  g4:{optIdx:1,pts:2},  // Internal reporting only — not yet published externally
   g5:{optIdx:2,pts:4},  // Annual training + whistleblowing channel
   g6:{optIdx:3,pts:6},  // CEO pay ratio 9:1 — disclosed
   g7:{optIdx:2,pts:4},  // ESG strategy with targets, not yet SBTi validated
-  // WORKERS — 7 questions
+  // WORKERS — 7 questions  [target: 20/42]
   w1:{optIdx:2,pts:4},  // Paying living wage informally, not LWF accredited
   w2:{optIdx:0,pts:0},  // No employee equity
   w3:{optIdx:2,pts:4},  // TRIR at sector average
-  w4:{optIdx:2,pts:4},  // Gender data published, ethnicity voluntary
+  w4:{optIdx:1,pts:2},  // DEI data tracked internally but not published
   w5:{optIdx:2,pts:4},  // £500–£1,499/head L&D spend
   w6:{optIdx:2,pts:4},  // Survey + action plan
-  w7:{optIdx:2,pts:4},  // Enhanced for both parents
-  // COMMUNITY — 6 questions
+  w7:{optIdx:1,pts:2},  // Enhanced maternity only — limited paternity
+  // COMMUNITY — 6 questions  [target: 8/36]
   c1:{optIdx:0,pts:0},  // Supplier diversity not tracked
-  c2:{optIdx:2,pts:4},  // Active partnerships with community orgs
-  c3:{optIdx:1,pts:2},  // 0.1–0.49% charitable giving
-  c4:{optIdx:0,pts:0},  // Social value not calculated
-  c5:{optIdx:2,pts:4},  // Risk mapping done, top 50 suppliers screened
-  c6:{optIdx:1,pts:2},  // Some incidental community benefit
+  c2:{optIdx:1,pts:2},  // Equal opportunity statement — no active programme
+  c3:{optIdx:1,pts:2},  // 0.1–0.49% charitable giving — not formalised
+  c4:{optIdx:0,pts:0},  // Social value (SROI) not calculated
+  c5:{optIdx:1,pts:2},  // Modern slavery statement + basic risk awareness
+  c6:{optIdx:1,pts:2},  // Some incidental community benefit from ESG advisory
   // ENVIRONMENT — 7 questions
   e1:{optIdx:1,pts:2},  // Self-reported Scope 1+2, no verification yet
   e2:{optIdx:1,pts:2},  // Internal targets, no SBTi
-  e3:{optIdx:2,pts:4},  // 35% renewables via REGO
-  e4:{optIdx:2,pts:4},  // 67% waste diversion
+  e3:{optIdx:1,pts:2},  // 10-49% renewables — mix of standard grid and REGO
+  e4:{optIdx:1,pts:2},  // 67% waste diversion — in 50-74% band
   e5:{optIdx:0,pts:0},  // Nature risk not assessed
-  e6:{optIdx:1,pts:2},  // Basic EMS in place
+  e6:{optIdx:0,pts:0},  // No formal EMS — environmental management is ad hoc
   e7:{optIdx:1,pts:2},  // Reduced harm but no net-positive model
   // CUSTOMERS — 3 questions
   cu1:{optIdx:2,pts:4}, // Cyber Essentials Plus, ISO 27001 targeted 2026
   cu2:{optIdx:1,pts:2}, // ESG advisory qualitative benefit, not measured
   cu3:{optIdx:1,pts:2}  // Customer complaints process only
 };
-// Total: 2+4+2+4+4+6+4 + 4+0+4+4+4+4+4 + 0+4+2+0+4+2 + 2+2+4+4+0+2+2 + 4+2+2 = 80 (just at threshold!)
-// Adjusted to 68 for realistic gap demonstration (reduce a few):
-// g1=0pts (no clause), c1=0, c4=0, e5=0, e6=0 keeps it at ~68
+// Verified total: gov22+wor20+com8+env10+cus8 = 68/186 — 12pts below 80pt threshold
+// Quick wins: add purpose clause g1 0→4 (+4), living wage LWF w1 4→6 (+2), SROI c4 0→4 (+4) = +10pts → 78pts
+// One more: supplier diversity c1 0→2 (+2) = 80pts exactly at threshold
 
 
 /* ═══════════════════════════════════════════════════════════════
@@ -4840,27 +4865,34 @@ function isInputActive(recoKey) {
 
 /* ═══════════════════════════════════════════════════════════════
    DEMO TOUR — guided walkthrough after demo login
+   Step counter, draggable tooltip, back button, report generation
 ═══════════════════════════════════════════════════════════════ */
 var TOUR_STEP = 0;
 var TOUR_STEPS = [
-  { screen:'intake',    title:'Step 0 — Intake & Context',
-    text:'ABC Limited is a 320-person professional services firm targeting B Corp certification by 2027. Their company profile, sector, jurisdictions and target frameworks are all pre-loaded here.',
-    pos:'bottom-center', next:'Go to ESG Diagnostic →' },
-  { screen:'diagnostic', title:'Step 1 — ESG Diagnostic',
-    text:'21 questions across 6 dimensions. ABC Limited scores ~57/100 — "Developing" band. The ESG Dashboard shows their gaps vs the Professional Services sector average and recommends priority actions with cost-to-change.',
-    pos:'bottom-center', next:'See ESG Dashboard →' },
-  { screen:'dashboard',  title:'Step 2 — ESG Dashboard',
-    text:'Radar chart, sector benchmarks, and AI-powered recommendation cards. Each card shows the BIA pillar it affects and the estimated cost to move up one maturity level. Click "Get AI action plan" on any card when AI is enabled.',
-    pos:'bottom-center', next:'Go to Carbon →' },
-  { screen:'carbon-dashboard', title:'Step 3 — Carbon Dashboard',
-    text:'ABC Limited emits ~700 tCO2e/year. Scope 2 (electricity across UK/EU/India) is the largest source. The optimisation engine ranks 9 actions by cost, carbon saving, and marginal abatement cost. Three scenarios show 5 and 10-year projections.',
-    pos:'bottom-center', next:'Go to ESG Report →' },
-  { screen:'report', title:'Step 4 — ESG Report',
-    text:'21 qualitative audit answers are pre-loaded for ABC Limited — covering carbon methodology, water, waste, DEI, H&S, governance, and more. Generate a Draft Report (AI) or build the Audit-Ready version from these answers.',
-    pos:'bottom-center', next:'Go to B Corp →' },
-  { screen:'bcorp',  title:'Step 5 — B Corp Readiness',
-    text:'ABC Limited scores ~68/186 on the 28-question BIA intake — 12 points below the 80-point certification threshold. Three quick wins close the gap: purpose clause (+4pts), supplier diversity (+3pts), SROI calculation (+4pts).',
-    pos:'bottom-center', next:'Finish tour →' },
+  { screen:'intake', tab:'0 Intake & Context',
+    title:'Step 1 of 6 — Intake & Context',
+    text:'This is where you set your company profile — sector, size, revenue, operating jurisdictions, legal form, and target reporting frameworks (GRI, CSRD, TCFD, B Corp etc.). This configures all other modules: sector benchmarks, framework recommendations, and carbon emission factors all depend on what you enter here. ABC Limited is a 320-person professional services firm targeting B Corp certification by 2027.',
+    next:'Go to ESG Diagnostic →', prev:null },
+  { screen:'diagnostic', tab:'1 ESG Diagnostic',
+    title:'Step 2 of 6 — ESG Diagnostic',
+    text:'21 questions across 6 dimensions: Carbon & Energy, Waste & Resources, People & Wellbeing, Community & Supply Chain, Strategy & Accountability, and Ethics & Risk. Each answer scores 0–4 and maps to an E, S, or G pillar. ABC Limited scores ~57/100 — the "Developing" band. The ESG Dashboard (next tab) shows exactly where the gaps are and ranks actions by sector benchmark gap and cost-to-change.',
+    next:'Go to ESG Dashboard →', prev:'← Back to Intake' },
+  { screen:'dashboard', tab:'2 ESG Dashboard',
+    title:'Step 3 of 6 — ESG Dashboard',
+    text:'Your radar chart, E/S/G pillar scores, and sector benchmark comparison. Recommendation cards are sorted by which dimensions fall most below the Professional Services sector average. Each card shows the BIA pillar it affects (purple badge), the estimated cost to move up one maturity level, and a "Get AI action plan" button. Scroll down to see all recommendations and your scores vs the sector table.',
+    next:'Go to Carbon Calc →', prev:'← Back to Diagnostic' },
+  { screen:'carbon', tab:'3 Carbon Calc',
+    title:'Step 4 of 6 — Carbon Calculator',
+    text:'Full Scope 1, 2 & 3 calculator across all 15 GHG Protocol categories. Work through 5 steps: (0) select your primary region — this sets emission factors; (1) Scope 1 direct emissions (gas, diesel, fleet, refrigerants); (2) Scope 2 electricity by region — ABC has UK, EU and India offices so all three are entered separately; (3) all 15 Scope 3 categories including flights, commuting, purchased goods, IT equipment; (4) review and calculate. DEFRA 2024 and DESNZ 2025 factors are built in.',
+    next:'Go to Carbon Dashboard →', prev:'← Back to ESG Dashboard' },
+  { screen:'carbon-dashboard', tab:'4 Carbon Dashboard',
+    title:'Step 5 of 6 — Carbon Dashboard',
+    text:'ABC Limited emits 1,546 tCO₂e/year. Scope 3 Cat 1 (purchased goods & services) is the largest category at 872 tCO₂e — typical for a professional services firm with significant supplier spend. The optimisation engine below ranks 9 reduction actions by marginal abatement cost, potential cost saving, or absolute carbon reduction. Use the sort buttons to switch between modes. Below that, three scenarios (Business as Usual, Moderate Action, Ambitious Transition) show projected emissions in 5 and 10 years — scroll down to see them. Expand Sources & Methodology to see every emission factor and its published source.',
+    next:'Go to ESG Report →', prev:'← Back to Carbon Calc' },
+  { screen:'report', tab:'5 ESG Report',
+    title:'Step 6 of 6 — ESG Report & B Corp',
+    text:'ABC Limited - 21 audit questionnaire answers are pre-loaded covering carbon methodology, water stewardship, waste, DEI, H&S, modern slavery, governance, executive pay, and more. In Draft mode, click "Generate Draft Report" (AI must be enabled) for a full AI-written disclosure in ~30 seconds. In Audit-Ready mode, use the pre-loaded answers to build a structured report. After this, visit the B Corp tab — ABC scores 68/186 on the 28-question BIA intake, 12 points below the certification threshold.',
+    next:'Finish tour →', prev:'← Back to Carbon Dashboard' },
 ];
 
 function loadAllDemoData(){
@@ -4899,8 +4931,7 @@ function animateTourProgress(){
   if(!fill) return;
   var pct=0;
   var iv=setInterval(function(){
-    pct+=4;
-    fill.style.width=Math.min(pct,100)+'%';
+    pct+=4; fill.style.width=Math.min(pct,100)+'%';
     if(pct>=100) clearInterval(iv);
   },30);
 }
@@ -4914,30 +4945,44 @@ function startGuidedTour(){
 function skipToHome(){
   document.getElementById('demo-tour-overlay').style.display='none';
   showScreen('home');
-  showDemoAlert('✅ ABC Limited data loaded — explore any module, or click 🧭 DEMO for a guide');
-  toggleDemoGuide(); // open the guide drawer
+  // Keep persistent banner visible
+  var pb=document.getElementById('demo-persistent-banner');
+  if(pb) pb.style.display='flex';
+  toggleDemoGuide();
 }
 
 function showTourStep(idx){
   if(idx>=TOUR_STEPS.length){ endTour(); return; }
   TOUR_STEP=idx;
   var step=TOUR_STEPS[idx];
-  // Navigate to screen
   showScreen(step.screen);
-  // Show tooltip after brief delay for screen to render
   setTimeout(function(){
     var tt=document.getElementById('demo-tooltip');
-    var ttText=document.getElementById('demo-tooltip-text');
-    var ttBtn=document.getElementById('demo-tooltip-btn');
     if(!tt) return;
-    ttText.innerHTML='<strong style="display:block;margin-bottom:4px;color:#5DD68A">'+step.title+'</strong>'+step.text;
-    ttBtn.textContent=step.next;
-    // Position at bottom of screen, centered
+    var total=TOUR_STEPS.length;
+    var pct=Math.round(((idx+1)/total)*100);
+    tt.innerHTML=
+      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;cursor:move" id="tt-drag-handle">'+
+        '<span style="font-size:11px;font-weight:700;color:#5DD68A">'+step.title+'</span>'+
+        '<span style="font-size:10px;color:rgba(255,255,255,.5)">drag to move</span>'+
+      '</div>'+
+      '<div style="height:3px;background:rgba(255,255,255,.15);border-radius:2px;margin-bottom:8px">'+
+        '<div style="height:3px;background:#5DD68A;border-radius:2px;width:'+pct+'%;transition:width .4s"></div>'+
+      '</div>'+
+      '<div id="demo-tooltip-text" style="font-size:12px;line-height:1.65;color:rgba(255,255,255,.9);margin-bottom:10px">'+step.text+'</div>'+
+      '<div style="display:flex;gap:8px;align-items:center">'+
+        (step.prev?'<button class="demo-tooltip-btn" style="background:rgba(255,255,255,.15);color:#fff" onclick="tourBack()">'+step.prev+'</button>':'')+
+        '<button class="demo-tooltip-btn" onclick="tourNext()" style="margin-left:auto">'+step.next+'</button>'+
+        '<button onclick="endTour()" title="End tour" style="padding:4px 8px;background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:4px;color:rgba(255,255,255,.5);cursor:pointer;font-size:10px;font-family:inherit">✕</button>'+
+      '</div>';
+    // Position bottom-centre, not covering nav
     tt.style.display='block';
-    tt.style.bottom='100px';
+    tt.style.bottom='120px';
     tt.style.left='50%';
-    tt.style.transform='translateX(-50%)';
     tt.style.top='auto';
+    tt.style.right='auto';
+    tt.style.transform='translateX(-50%)';
+    makeDraggable(tt, document.getElementById('tt-drag-handle'));
   },350);
 }
 
@@ -4947,13 +4992,17 @@ function tourNext(){
   showTourStep(TOUR_STEP);
 }
 
+function tourBack(){
+  if(TOUR_STEP>0){ TOUR_STEP--; showTourStep(TOUR_STEP); }
+}
+
 function endTour(){
   var tt=document.getElementById('demo-tooltip');
   if(tt) tt.style.display='none';
   showScreen('home');
-  showDemoAlert('✅ Tour complete! All ABC Limited data is loaded. Explore any module.');
-  // Open demo guide drawer
-  setTimeout(function(){ toggleDemoGuide(); },800);
+  var pb=document.getElementById('demo-persistent-banner');
+  if(pb) pb.style.display='flex';
+  setTimeout(function(){ toggleDemoGuide(); },400);
 }
 
 function showDemoAlert(msg){
@@ -4961,7 +5010,26 @@ function showDemoAlert(msg){
   if(!el) return;
   el.textContent=msg;
   el.style.display='block';
-  setTimeout(function(){ el.style.display='none'; },4000);
+  setTimeout(function(){ el.style.display='none'; },5000);
+}
+
+function makeDraggable(el, handle){
+  var pos={x:0,y:0,startX:0,startY:0};
+  if(!handle) return;
+  handle.onmousedown=function(e){
+    e.preventDefault();
+    pos.startX=e.clientX; pos.startY=e.clientY;
+    document.onmouseup=function(){ document.onmouseup=null; document.onmousemove=null; };
+    document.onmousemove=function(e){
+      pos.x=pos.startX-e.clientX; pos.y=pos.startY-e.clientY;
+      pos.startX=e.clientX; pos.startY=e.clientY;
+      var t=(el.offsetTop-pos.y);
+      var l=(el.offsetLeft-pos.x);
+      el.style.top=Math.max(60,t)+'px';
+      el.style.left=Math.max(10,Math.min(window.innerWidth-320,l))+'px';
+      el.style.bottom='auto'; el.style.transform='none';
+    };
+  };
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -5004,7 +5072,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         <strong>🏢 ABC Limited — Demo Company</strong>
         Professional services · 320 FTE · £28M revenue · FY 2024<br>
         UK (HQ) + EU (Dublin) + India (Bangalore) · Target: B Corp by 2027<br>
-        <span style="color:#5DD68A;font-weight:600">~700 tCO₂e/yr · ESG score ~57/100 · BIA ~68/186</span>
+        <span style="color:#5DD68A;font-weight:600">~1,546 tCO₂e/yr · ESG score ~57/100 · BIA ~68/186 (12 pts from threshold)</span>
       </div>
       <div class="demo-tour-steps">
         <div class="demo-tour-step"><div class="demo-tour-step-num">0</div><div class="demo-tour-step-text"><strong>Intake &amp; Context</strong>Company profile, sector, jurisdictions, frameworks</div></div>
@@ -5013,9 +5081,17 @@ document.addEventListener('DOMContentLoaded',()=>{
         <div class="demo-tour-step"><div class="demo-tour-step-num">3</div><div class="demo-tour-step-text"><strong>ESG Report</strong>21 qualitative audit answers pre-loaded</div></div>
         <div class="demo-tour-step"><div class="demo-tour-step-num">4</div><div class="demo-tour-step-text"><strong>B Corp Readiness</strong>28-question BIA intake · gap to 80-point threshold</div></div>
       </div>
-      <div class="demo-tour-btns">
-        <button class="demo-tour-btn-primary" onclick="startGuidedTour()">▶ Start Guided Tour</button>
-        <button class="demo-tour-btn-secondary" onclick="skipToHome()">Explore freely →</button>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem">
+        <div style="border:2px solid var(--g800);border-radius:var(--r);padding:.85rem;cursor:pointer" onclick="startGuidedTour()">
+          <div style="font-size:1.1rem;margin-bottom:.35rem">▶ Guided Tour</div>
+          <div style="font-size:12px;color:var(--ink2);line-height:1.5">Step-by-step walkthrough with explanations on each screen. A floating card appears — drag it to see what's underneath. Use Back / Next to move between steps.</div>
+          <div style="margin-top:.5rem;background:var(--g800);color:#fff;border-radius:5px;padding:6px 12px;font-size:13px;font-weight:700;text-align:center">Start Tour (6 steps)</div>
+        </div>
+        <div style="border:1.5px solid var(--border);border-radius:var(--r);padding:.85rem;cursor:pointer" onclick="skipToHome()">
+          <div style="font-size:1.1rem;margin-bottom:.35rem">🗺 Explore Freely</div>
+          <div style="font-size:12px;color:var(--ink2);line-height:1.5">All ABC Limited data is already loaded. Navigate the tabs yourself in any order. The 🧭 DEMO guide opens on the right — click any module to jump to it, or use Auto-Fill per screen.</div>
+          <div style="margin-top:.5rem;background:var(--surface2);color:var(--ink);border:1px solid var(--border);border-radius:5px;padding:6px 12px;font-size:13px;font-weight:600;text-align:center">Explore on my own →</div>
+        </div>
       </div>
     </div>
   </div>
@@ -5029,6 +5105,16 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 <!-- DEMO ALERT BANNER -->
 <div class="demo-alert-banner" id="demo-alert-banner" style="display:none"></div>
+
+<!-- PERSISTENT DEMO BANNER -->
+<div id="demo-persistent-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:#fff;z-index:500;padding:10px 20px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px">
+  <span>🧭 <strong>Demo mode:</strong> ABC Limited data loaded across all screens. Use the tabs to explore each module.</span>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <button onclick="document.getElementById('demo-tour-overlay').style.display='flex';animateTourProgress()" style="padding:5px 12px;background:#5DD68A;color:#1A2E22;border:none;border-radius:5px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit">▶ Restart Tour</button>
+    <button onclick="toggleDemoGuide()" style="padding:5px 12px;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:5px;font-size:12px;cursor:pointer;font-family:inherit">🧭 Open Guide</button>
+    <button onclick="document.getElementById('demo-persistent-banner').style.display='none'" style="padding:5px 10px;background:transparent;color:rgba(255,255,255,.5);border:none;font-size:16px;cursor:pointer">✕</button>
+  </div>
+</div>
 
 <!-- SATISFACTION GATE MODAL -->
 <div id="sat-gate-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:4000;align-items:center;justify-content:center;padding:1rem">
