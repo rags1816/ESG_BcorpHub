@@ -477,7 +477,7 @@ textarea.inp{resize:vertical;min-height:75px;line-height:1.6}
         <h2>🔧 Admin Access</h2>
         <span class="login-card-badge badge-admin">ADMIN</span>
       </div>
-      <p class="login-card-sub">Full controls — AI, users, emission factors. Username: <strong>admin</strong> · Password: <strong>C4rb0n2026Vijay</strong></p>
+      <p class="login-card-sub">Full controls — AI, users, emission factors, user management. Contact your system administrator for credentials.</p>
       <div id="admin-login-err" class="login-err"></div>
       <div class="lf">
         <label>Username</label>
@@ -2401,16 +2401,14 @@ function handleDemoUsernameInput(v){
 }
 function attemptLogin(which){
   if(which==='demo'){
-    const u=(document.getElementById('demo-username').value||'').trim().toLowerCase();
-    const err=document.getElementById('demo-login-err');
-    if(u==='demo'||u===''){ enterApp('demo'); return; }
-    err.textContent='Use username "demo" for demo access — no password needed.'; err.style.display='block';
+    enterApp('demo'); return;
   } else {
     const u=(document.getElementById('admin-username').value||'').trim().toLowerCase();
     const p=document.getElementById('admin-password').value||'';
     const err=document.getElementById('admin-login-err');
-    if((u==='admin'||u==='vijay')&&p===ADMIN_PASS){ enterApp('admin'); return; }
-    err.textContent='Incorrect username or password. Username: admin  Password: C4rb0n2026Vijay'; err.style.display='block';
+    const pt=p.trim();
+    if((u==='admin'||u==='vijay')&&(pt===ADMIN_PASS||pt===ADMIN_PASS.trim())){ enterApp('admin'); return; }
+    err.textContent='Incorrect username or password.'; err.style.display='block';
   }
 }
 function enterApp(role){
