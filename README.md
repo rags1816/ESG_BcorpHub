@@ -43,6 +43,12 @@ Deployed to Krystal `public_html` per client, branded via the Admin Panel.
 See `ESG_Hub_V4_Admin_Guide.docx` for deployment steps and
 `ESG_Hub_V4_User_Guide.docx` for the assessment walkthrough.
 
+## Development note
+
+Development assisted by Claude Code (Anthropic) under my direction. The
+methodology, product design, and domain expertise reflected in this tool
+are my own — see `METHODOLOGY.md` for the original framework.
+
 ## Related
 
 See [`METHODOLOGY.md`](./METHODOLOGY.md) for the diagnostic scoring model,
